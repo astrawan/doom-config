@@ -1,0 +1,69 @@
+# -*- mode: conf-unix -*-
+# mu init --maildir=~/.Maildir --my-address=wastrawan@gmail.com --my-address=astrawan@outlook.com --my-address=astrawan@icloud.com
+# mu index
+[general]
+pythonfile = offlineimap.py
+accounts = Gmail, Outlook, Icloud
+# make it use only 1 thread to avoid multiple gpg key input confirmation
+maxsyncaccounts = 1
+socktimeout = 30
+
+[Account Gmail]
+localrepository = GmailLocal
+remoterepository = GmailRemote
+
+[Repository GmailLocal]
+type = Maildir
+localfolders = ~/.Maildir/wastrawan@gmail.com
+
+[Repository GmailRemote]
+type = IMAP
+remotehost = imap.gmail.com
+remoteuser = wastrawan@gmail.com
+remotepasseval = get_authinfo_pass('authinfo.gpg', 'imap.gmail.com', 'wastrawan@gmail.com', 993)
+# realdelete = no
+ssl = yes
+sslcacertfile = /etc/ssl/cert.pem
+maxconnections = 1
+holdconnectionopen = no
+folderfilter = lambda folder: folder not in [
+                                            '[Gmail]/Trash',
+                                            '[Gmail]/All Mail',
+                                            ]
+[Account Outlook]
+localrepository = OutlookLocal
+remoterepository = OutlookRemote
+
+[Repository OutlookLocal]
+type = Maildir
+localfolders = ~/.Maildir/astrawan@outlook.com
+
+[Repository OutlookRemote]
+type = IMAP
+remotehost = outlook.office365.com
+remoteuser = astrawan@outlook.com
+remotepasseval = get_authinfo_pass('authinfo.gpg', 'outlook.office365.com', 'astrawan@outlook.com', 993)
+ssl = yes
+sslcacertfile = /etc/ssl/cert.pem
+maxconnections = 1
+holdconnectionopen = no
+folderfilter = lambda folder: folder not in ['Trash',]
+
+[Account Icloud]
+localrepository = IcloudLocal
+remoterepository = IcloudRemote
+
+[Repository IcloudLocal]
+type = Maildir
+localfolders = ~/.Maildir/astrawan@icloud.com
+
+[Repository IcloudRemote]
+type = IMAP
+remotehost = imap.mail.me.com
+remoteuser = astrawan@icloud.com
+remotepasseval = get_authinfo_pass('authinfo.gpg', 'imap.mail.me.com', 'astrawan@icloud.com', 993)
+ssl = yes
+sslcacertfile = /etc/ssl/cert.pem
+maxconnections = 1
+holdconnectionopen = no
+folderfilter = lambda folder: folder not in ['Trash',]
