@@ -14,7 +14,7 @@
            (concat "cd " mu4e-dir " && offlineimap -c offlineimaprc")
            mu4e-view-show-addresses t
            mu4e-update-interval 300
-           auth-sources '((:source (concat mu4e-dir "/authinfo.gpg")))
+           auth-sources '((:source "~/.doom.d/mu4e/authinfo.gpg"))
            smtpmail-debug-info t
            message-send-mail-function 'smtpmail-send-it)
 

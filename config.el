@@ -7,7 +7,7 @@
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
 (setq user-full-name "Astrawan Wayan"
-      user-mail-address "astra@pm.me")
+      user-mail-address "astrawan@icloud.com")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -94,6 +94,12 @@
 ;;(require 'ob-http)
 ;;(require 'ob-typescript)
 
+(setq-hook! elfeed-search-mode
+  elfeed-feeds '(("https://fedoramagazine.org/feed/" fedora-magazine)
+                 ("https://www.redhat.com/en/rss/blog" redhat-blog)
+                 ("https://next.redhat.com/feed/" redhat-emerging-technologies)
+                 ("https://research.redhat.com/feed/" redhat-research)))
+
 (after! mu4e
   (private/mu4e-setup))
 
@@ -103,6 +109,7 @@
 
 (setq
  standard-indent 2)
+;;(setq auth-sources '((:source "~/.doom.d/authinfo.gpg")))
 
 ;; Enable syntax highlight in org-latex via minted texlive package
 (use-package! ox-latex
@@ -175,3 +182,12 @@
         web-mode-css-indent-offset 2
         web-mode-code-indent-offset 2
         web-mode-attr-indent-offset 2))
+
+;; (use-package! wl
+;;   :config
+;;   (setq acap-debug t
+;;         elmo-imap4-debug t
+;;         elmo-nntp-debug t
+;;         elmo-pop3-debug t
+;;         wl-init-file "~/.wl"
+;;         wl-folders-file "~/.folders"))
