@@ -47,7 +47,7 @@ ssl = yes
 sslcacertfile = /etc/ssl/cert.pem
 maxconnections = 1
 holdconnectionopen = no
-folderfilter = lambda folder: folder not in ['Trash',]
+folderfilter = lambda folder: folder not in ['Trash', 'Notes']
 
 [Account Icloud]
 localrepository = IcloudLocal
