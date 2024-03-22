@@ -71,8 +71,3 @@
 
 (package! org-roam-ui)
 (package! yasnippet-snippets)
-
-(package! docker
-  :recipe (:local-repo "~/Projects/elisp/docker.el"
-           :files ("*.el")
-           :build (:not compile)))

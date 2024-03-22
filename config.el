@@ -7,7 +7,7 @@
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
 (setq user-full-name "Astrawan Wayan"
-      user-mail-address "astrawan@icloud.com")
+      user-mail-address "astra@pm.me")
 
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
@@ -45,7 +45,7 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/org/")
+(setq org-directory "~/Documents/org/")
 
 
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
@@ -89,17 +89,6 @@
 (remove-hook! '+doom-dashboard-functions #'doom-dashboard-widget-shortmenu)
 (remove-hook! '+doom-dashboard-functions #'doom-dashboard-widget-footer)
 
-;;(require 'ob-go)
-;;(require 'ob-graphql)
-;;(require 'ob-http)
-;;(require 'ob-typescript)
-
-(setq-hook! elfeed-search-mode
-  elfeed-feeds '(("https://fedoramagazine.org/feed/" fedora-magazine)
-                 ("https://www.redhat.com/en/rss/blog" redhat-blog)
-                 ("https://next.redhat.com/feed/" redhat-emerging-technologies)
-                 ("https://research.redhat.com/feed/" redhat-research)))
-
 (after! mu4e
   (private/mu4e-setup))
 
@@ -109,7 +98,6 @@
 
 (setq
  standard-indent 2)
-;;(setq auth-sources '((:source "~/.doom.d/authinfo.gpg")))
 
 ;; Enable syntax highlight in org-latex via minted texlive package
 (use-package! ox-latex
@@ -119,16 +107,14 @@
         org-latex-pdf-process '("latexmk -f -pdf -%latex -shell-escape -interaction=nonstopmode -output-directory=%o %f")))
 (after! ox-latex
   (add-to-list 'org-latex-packages-alist '("" "minted" nil)))
-;; (with-eval-after-load 'ox-latex
-;;   (add-to-list 'org-latex-packages-alist '("" "minted" nil)))
 
-;; Neotree
-(use-package! neotree
+;; Treemacs
+(use-package! treemacs
   :config
   (setq
-   ;; neo-theme 'icons
-   neo-window-position 'right
-   neo-window-width 40))
+   treemacs-follow-mode t
+   treemacs-position 'right
+   treemacs-width 40))
 
 ;; Org Roam
 (use-package! org-roam
@@ -138,7 +124,6 @@
    org-roam-directory (file-truename "~/Documents/Org/RoamNotes")))
 (after! org-roam
   (require 'org-roam-ui))
-;; (org-roam-db-autosync-mode)
 
 (use-package! plantuml-mode
   :config
@@ -182,12 +167,3 @@
         web-mode-css-indent-offset 2
         web-mode-code-indent-offset 2
         web-mode-attr-indent-offset 2))
-
-;; (use-package! wl
-;;   :config
-;;   (setq acap-debug t
-;;         elmo-imap4-debug t
-;;         elmo-nntp-debug t
-;;         elmo-pop3-debug t
-;;         wl-init-file "~/.wl"
-;;         wl-folders-file "~/.folders"))
