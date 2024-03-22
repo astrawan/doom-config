@@ -23,11 +23,11 @@
 ;;
 ;;(setq doom-font (font-spec :family "Fira Code" :size 12 :weight 'semi-light)
 ;;      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 13))
-(setq doom-font (font-spec :family "FiraCode Nerd Font Mono" :size 12.0)
-      doom-variable-pitch-font (font-spec :family "FiraCode Nerd Font" :size 12.0)
-      doom-unicode-font (font-spec :family "FiraCode Nerd Font Mono" :size 12.0)
-      doom-big-font (font-spec :family "FiraCode Nerd Font Mono" :size 20.0)
-      doom-serif-font (font-spec :family "FiraCode Nerd Font" :size 12.0 :weight 'normal))
+(setq doom-font (font-spec :family "FiraCode Nerd Font Mono" :size 11.0 :weight 'medium)
+      doom-variable-pitch-font (font-spec :family "FiraCode Nerd Font" :size 11.0 :weight 'medium)
+      doom-symbol-font (font-spec :family "FiraCode Nerd Font Mono" :size 11.0 :weight 'medium)
+      doom-big-font (font-spec :family "FiraCode Nerd Font Mono" :size 18.0 :weight 'medium)
+      doom-serif-font (font-spec :family "FiraCode Nerd Font" :size 11.0 :weight 'normal))
 
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -143,7 +143,7 @@
 
 (use-package! sh-script
   :config
-  (setq sh-indentation 2))
+  (setq sh-basic-offset 2))
 
 ;; SQL
 (add-hook! sql-mode-hook 'lsp)
